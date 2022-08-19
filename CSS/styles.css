@@ -1,0 +1,20 @@
+
+Required functionality:
+
+//Start button to start
+//Pause button to pause game??
+//Spaceship to move left/right on press of arrow keys
+//Spaceship to fire on press of spacebar
+//Lazers to move from bottom to top until comet/block hit or move off screen
+//Blocks to move left to right
+//Comets to love left to right
+
+//Blocks/comets to spawn over height of grid.
+//Blocks/comets to dissapear after hit
+//Blocks to dissapear if complete column on right.
+
+//Timer for length of round??
+//Score counter:
+        +1 when comet hit or blocks lined up
+        -1 when coment hits blocks or blocks accidently shot
+//Name prompt for scoreboard after lose/win??
