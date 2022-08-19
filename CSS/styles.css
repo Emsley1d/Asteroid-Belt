@@ -1,20 +1,79 @@
 
-Required functionality:
 
-//Start button to start
-//Pause button to pause game??
-//Spaceship to move left/right on press of arrow keys
-//Spaceship to fire on press of spacebar
-//Lazers to move from bottom to top until comet/block hit or move off screen
-//Blocks to move left to right
-//Comets to love left to right
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
 
-//Blocks/comets to spawn over height of grid.
-//Blocks/comets to dissapear after hit
-//Blocks to dissapear if complete column on right.
+}
 
-//Timer for length of round??
-//Score counter:
-        +1 when comet hit or blocks lined up
-        -1 when coment hits blocks or blocks accidently shot
-//Name prompt for scoreboard after lose/win??
+header {
+
+    text-align: center;
+    color: black;
+    font-size: 40px;
+}
+
+.page {
+    background-color: rgb(205, 205, 205);
+    width: 1500px;
+    height: 1000px;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    font-size: 30px;
+}
+.gameWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://images.pexels.com/photos/810890/nature-night-sky-milky-way-810890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: 100%;
+    height: 500px; 
+    width: 1000px;
+    border: 2px solid black;
+}
+
+.spaceshipWindow {
+    background-color: black, 50;
+    border: 2px solid black;
+    height: 100px;
+    width: 1000px;
+}
+
+button {
+    font: 20px;
+    height: 80px;
+    width: 200px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.controls {
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    width: 80px;
+}
+
+.space {
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.lazer {
+	width: 0;
+	height: 0;
+	border-left: 2.5px solid transparent;
+	border-right: 2.5px solid transparent;
+	border-bottom: 10px solid red;
+}
