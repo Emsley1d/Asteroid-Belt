@@ -6,55 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styles.css">
+    </link>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
-    </link>
     <title>SPACE TETRIS</title>
 </head>
 
 <body>
     <br>
     <div class="page">
-    <header>
-        <h1>SPACE TETRIS</h1>
-        <h3>Shoot the comets and line up your space-station to score!</h3>
+        <header>
+            <h1>SPACE TETRIS</h1>
+            <h3>Shoot the comets and build your space-station to score!</h3>
+        </header>
 
-    </header>
 
-
-    <div class="gameWindow">
-        <div class="assets">
-            <div class="missle">
-                <img src="Images/missle2.png" />
-            </div>
-            <div class="comet">
-                <img src="Images/comet.png" />
-            </div>
-            <br>
-            <div class="block">
-                <img src="Images/block.png" />
-            </div>
-            <div class="explosion">
-                <img src="Images/Explosion.png" />
-            </div>
-
+        <div class="gameWindow"></div>
+        <div class="missle">
+            <img src="Images/missle2.png" />
         </div>
-    </div>
-    <div class="spaceshipWindow">
+        <!-- <div class="comet">
+            <img src="Images/comet.png" />
+        </div>
+        <div class="block">
+            <img src="Images/block.png" />
+        </div>
+        <div class="explosion">
+            <img src="Images/Explosion.png" />
+        </div> -->
         <div class="ship">
             <img src="Images/ship2.png" />
-    </div>
+        </div>
 
-    <p id="countDown"></p>
-    <div">
-    <br>
+
+    </div>
+    <div class="bar">
+        <p>Background Music:</p> &nbsp; &nbsp;
+        <audio class="music" autoplay controls>
+            <source src="Audio/01 Main Theme.mp3" type="audio/mpeg">
+        </audio>
         <button class="controls"> &larr; Left</button>
         <button class="space">Space Bar = shoot</button>
         <button class="controls"> &#8594; Right </button>
-
     </div>
-</div>
+    <hr>
+    <footer>
+        <a href="https://git.generalassemb.ly/emsleyd" target="blank">Git Profile</a> &nbsp;
+        <a href="http://danemsley.com/defaultsite" target="blank">Portfolio</a> &nbsp;
+        <a href="https://www.linkedin.com/in/danemsley/" target="blank">LinkedIn</a>
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
