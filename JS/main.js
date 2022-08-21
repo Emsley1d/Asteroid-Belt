@@ -38,44 +38,29 @@
 //     switch (e.which){
 //     case 37:
 //         $(".ship").stop().animate({
-//             left: "-=5"
+//             left: "-=15"
 //         });
 //         break;
 //     case 39:
 //         $(".ship").stop().animate({
-//             left: "+=5"
+//             left: "+=15"
 //         });
 //     }
 // });
-
-// var $div = $('.ship');
-// $(document).keydown(function(e) {
-//     switch (e.which) {
-//     case 37:
-//         $div.css('left', $div.offset().left - 15);
-//         break;
-//     case 39:
-//         $div.css('left', $div.offset().left + 15); 
-//     }
-// });
-
-// game window = 1000px;
-//if space bar is pushed (which it will ve to fire) the left/right movement is stopped
 
 var $div = $('.ship');
 $(document).keydown(function(e) {
     switch (e.which) {
     case 37:
-    $div.css('left', $div.offset().left - 15);
+        $div.css('left', $div.offset().left - 15);
         break;
     case 39:
-    $div.css('left', $div.offset().left + 15); 
-    break;
-    case 32:
-    $div.css('left', $div.offset().left - 0);
+        $div.css('left', $div.offset().left + 15); 
     }
 });
 
+// game window = 1000px;
+//if space bar is pushed (which it will be to fire) the left/right movement is stopped
 
 // *********************************************************************************
 
@@ -86,10 +71,10 @@ $(document).keydown(function(e) {
 // $(document).keydown(function(e) {
 //     switch (e.which) {
 //     case 32:
-//         $div.css('left', $div.offset().bottom + 100);
+//         $div.css('bottom', $div.offset().bottom + 400);
 //     };
 // });
-
+   
 // document.body.onkeyup = function(e) {
 //     if (e.key == ".missle" ||
 //         e.code == "Space" ||      
@@ -99,6 +84,24 @@ $(document).keydown(function(e) {
 //     }
 //   }
 
+// var $div = $('missle');
+// $(document).keydown(function(e) {
+//     switch (e.which) {
+//     case 32:
+//     $div.css('top', $div.offset().top -400);
+//     }
+// });
+
+$(document).keydown(function(e){
+    switch (e.which){
+    case 32:
+        $(".missle").stop().animate({
+            top  : "-=350"
+        })
+    }
+});
+
+// ***************************************************************************
 
 //countdown timer - new game button press
 // var countDown = 3;
