@@ -17,7 +17,6 @@ header {
 }
 
 .page {
-    /* background-color: rgb(86, 86, 86); */
     background-image: url("https://images.pexels.com/photos/810890/nature-night-sky-milky-way-810890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     width: 1500px;
     height: 1000px;
@@ -36,13 +35,21 @@ h1 {
 h3 {
     font-size: 30px;
 }
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+    color: red;
+    font-size: 22px;
+    position: relative;
+
+
+}
 .gameWindow {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-image: url("https://images.pexels.com/photos/810890/nature-night-sky-milky-way-810890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); */
-    /* background-image: url("https://petapixel.com/assets/uploads/2021/09/Photos-Taken-From-Even-Higher-than-the-ISS.jpg"); */
     background-image: url("https://petapixel.com/assets/uploads/2021/09/FAd5D2dWQAAdSrK-1536x1025.jpg");
     background-size: 100%;
     height: 500px; 
@@ -85,14 +92,6 @@ button {
     cursor: auto;
     margin-left: 15px;
     margin-right: 15px;;
-}
-
-.lazer {
-	width: 0;
-	height: 0;
-	border-left: 2.5px solid transparent;
-	border-right: 2.5px solid transparent;
-	border-bottom: 10px solid red;
 }
 
 .music {
@@ -138,18 +137,25 @@ a {
     margin-top: 700px;
 }
 
-.missle {
+.missile {
     position: absolute;
-    margin-top: 610px;
+    margin-left: 77.5px;
+    margin-top: -150px;
+
 }
 
 .comet {
     position: absolute;
     margin-right: 1100px;
+    /* margin-top: -410px; top boundary */
+    /* margin-top: 390px; bottom bounday */
+
 }
 
 .block {
     position: absolute;
-    margin-right: 1100px;
-    margin-top: 400px;
+    margin-right: 1105px;
+    /* margin-top: -337px; top boundary */
+    /* margin-top: 442px; bottom boundary */
+
 }

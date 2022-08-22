@@ -9,10 +9,19 @@ Space-Tetris?
 //Collected/created sounds and images
 //Improved HTML pages to potential near final versions
 //Introduced background music/the images I created
+
 //Started trying to animate images
         //Originally used stop().animate() but movement was very jerky
         //Used $div.css('left', $div.offset().left - 15) as made movement smoother
-        //Then realised hit spacebar (to fire missle) stopped left/right movement
+        //Then realised hit spacebar (to fire missile) stopped left/right movement
+        //Animated missile but then couldnt work out how to fire it on each press of spacebar
+                        //included missile inside ship dive to link posiiton to ship but missile was positioned to left; due to display flex?
+                        //missile also carries on moving left/right after it has been fired due to the continued spaceship movement.
+                        //how to repear missile animation after each spacebar press??
+
+        //Animated coments/blocks but need to randomise starting position and adjust speed?? Managed to adjust speed after some googling but both comet/block accelrate then decellerate - need speed to be constant/instant (found linear :))
+                //created random height function for comet/block start position....then realised it set same starting position for both so created two seperate functions
+                //created random interval function for when next block/comet should appear
     
 
 Assets required:
@@ -20,12 +29,12 @@ Assets required:
 -Comet
 -Block
 -Explosion
--Missle/Lazer
+-Missile/Lazer
 -Title Background
 -Space Background
 
 -Explosion sound - "science_fiction_laser_004"
--Missle/Lazer sound - "zapsplat_explosion_big_heavy_dynomite_002_62566"
+-Missile/Lazer sound - "zapsplat_explosion_big_heavy_dynomite_002_62566"
 -Row complete sound - "zapsplat_multimedia_alert_bright_warm_system_negative_error_001_57861"
 -Background music - 16-bit adventure; main theme?
 
@@ -72,7 +81,7 @@ Click Credits >
 
 Player needs to move left to right
 Comets/blocks need to move from left to right over X number of rows.
-Missles/lazers need to move up; then stop on collision with comet
+Missiles/lazers need to move up; then stop on collision with comet
 Player scores when a row of blocks has been completed on the right
 End game after comets hit X number of blocks
 Player scores for number of rows completed and number of comets hits
@@ -104,3 +113,16 @@ Click new Game >
 
 
 
+How to randomise comet/block starting position
+  turn gameWindow into 4 rows? Create a function that picks a random number 1 to 4; then somehow trigger animation from that row?
+
+  randomise top property in html/JS 
+
+How to randomise comet/block frequency?
+call object function multiple times with different intervals
+
+How to repeat missile function on keyboard press?
+for loops
+
+How to get javascript to recognise colission between missile and comet/missile and block??
+posistions match???

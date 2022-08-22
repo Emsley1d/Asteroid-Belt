@@ -34,99 +34,97 @@
 
 // Spaceship movement ************************************************************
 
-// $(document).keydown(function(e){
-//     switch (e.which){
-//     case 37:
-//         $(".ship").stop().animate({
-//             left: "-=15"
-//         });
-//         break;
-//     case 39:
-//         $(".ship").stop().animate({
-//             left: "+=15"
-//         });
+
+
+// var $div = $('.ship');
+// $(document).keydown(function (e) {
+//     switch (e.which) {
+//         case 37:
+//             $div.css('left', $div.offset().left - 15);
+//             break;
+//         case 39:
+//             $div.css('left', $div.offset().left + 15);
 //     }
 // });
-
-var $div = $('.ship');
-$(document).keydown(function(e) {
-    switch (e.which) {
-    case 37:
-        $div.css('left', $div.offset().left - 15);
-        break;
-    case 39:
-        $div.css('left', $div.offset().left + 15); 
-    }
-});
 
 // game window = 1000px;
 //if space bar is pushed (which it will be to fire) the left/right movement is stopped
 
 // *********************************************************************************
 
-// Missle fires
-// Space bar = 32
+// MissIle
 
-// var $div = $('.missle');
-// $(document).keydown(function(e) {
-//     switch (e.which) {
-//     case 32:
-//         $div.css('bottom', $div.offset().bottom + 400);
-//     };
-// });
-   
-// document.body.onkeyup = function(e) {
-//     if (e.key == ".missle" ||
-//         e.code == "Space" ||      
-//         e.keyCode == 32      
-//     ) {
-//       //your code
-//     }
-//   }
-
-// var $div = $('missle');
-// $(document).keydown(function(e) {
-//     switch (e.which) {
-//     case 32:
-//     $div.css('top', $div.offset().top -400);
-//     }
-// });
-
-
-$(document).keypress(function(e){
-    switch (e.which){
-    case 32:
-        $(".missle").stop().animate({
-            top  : "-=580"
-        // $('.missleAudio').play() 
-        })
+// Missile fires on space bar press   
+$(document).keydown(function (e) {
+    $(".missile").animate({
+        top: "250"
+    })  
+    switch (e.which) {
+        case 32:     
+            $(".missile").animate({
+                top: "-=600"
+            })
     }
 });
 
+// Missle sounds on space bar press
+// document.addEventListener('keydown', function(e) {
+//     if (e.keycode == 32){
+//       document.getElementById('.missleAudio').play();
+//     }
+//   });
 
 
 // //     id = setInterval(frame, 5); // calls the function again after every 5 milisecs.
 
 // ***************************************************************************
 
-//Comets/blocks 
+// COMETS / BLOCKS
 
-$(document).ready(function() {
+// Random comet height
+const cometHeight = [310, 110, -110, -310];
+const cometRandomHeight = cometHeight[Math.floor(Math.random() * cometHeight.length)];
+console.log(cometRandomHeight);
+
+//Random block height  (falling foul of DRY here? )
+var blockHeight = [310, 110, -110, -310];
+var blockRandomHeight = blockHeight[Math.floor(Math.random() * blockHeight.length)];
+console.log(blockRandomHeight);
+
+//Random interval between blocks/comets being called
+const interval = [1000, 1500, 2000, 2500];
+const randomInterval = interval[Math.floor(Math.random() * interval.length)];
+console.log(randomInterval);
+
+//Comet on page load
+$(document).ready(function () {
     $(".comet").animate({
-        right: "-=1000"
-    })
+        bottom: cometRandomHeight, right: "-=1000",
+    }, 2000, "linear")
 });
 
-$(document).ready(function() { 
+//Comet repeat after interval
+$.when( $.ready ).then(function() {
+    $(".comet").animate({
+        bottom: cometRandomHeight, right: "+=1000",  
+    }, 3500, "linear")
+  });
+
+//Block on page load
+$(document).ready(function () {
     $(".block").animate({
-        right: "-=1000"
-    })
+        bottom: blockRandomHeight, right: "-=1000",
+    }, 2500, "linear")
 });
+
+// How to now call each automatically at seperate intervals
+
 
 
 // **************************************
-//countdown timer - new game button press
-// var countDown = 3;
+
+// // countdown timer - new game button press
+// var countDown = 6000;
 // setInterval(function () {
 //     countDown = countDown - 1;
 //     const elementCountDown = document.getElementById("countDown");
