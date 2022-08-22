@@ -92,17 +92,39 @@ $(document).keydown(function(e) {
 //     }
 // });
 
-$(document).keydown(function(e){
+
+$(document).keypress(function(e){
     switch (e.which){
     case 32:
         $(".missle").stop().animate({
-            top  : "-=350"
+            top  : "-=580"
+        // $('.missleAudio').play() 
         })
     }
 });
 
+
+
+// //     id = setInterval(frame, 5); // calls the function again after every 5 milisecs.
+
 // ***************************************************************************
 
+//Comets/blocks 
+
+$(document).ready(function() {
+    $(".comet").animate({
+        right: "-=1000"
+    })
+});
+
+$(document).ready(function() { 
+    $(".block").animate({
+        right: "-=1000"
+    })
+});
+
+
+// **************************************
 //countdown timer - new game button press
 // var countDown = 3;
 // setInterval(function () {

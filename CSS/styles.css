@@ -140,5 +140,16 @@ a {
 
 .missle {
     position: absolute;
-    margin-top: 500px;
+    margin-top: 610px;
+}
+
+.comet {
+    position: absolute;
+    margin-right: 1100px;
+}
+
+.block {
+    position: absolute;
+    margin-right: 1100px;
+    margin-top: 400px;
 }
