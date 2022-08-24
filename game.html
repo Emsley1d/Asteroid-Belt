@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
-    <title>SPACE TETRIS</title>
+    <title>SPACE TETRIS &#9732;</title>
 </head>
 
 <body>
@@ -18,26 +18,28 @@
     <div class="page">
         <header>
             <h1>SPACE TETRIS</h1>
-            <h3>Shoot the comets and build your space-station to score!</h3>
+            <h3>Shoot the comets and protect your space-station to score!</h3>
         </header>
 
 
-        <div class="gameWindow">
-            <div class="comet">
+        <div class="grid">
+            <!-- <div class="comet">
                 <img src="Images/comet.png" />
             </div>
             <div class="block">
                 <img src="Images/block.png" />
             </div>
-            <!-- <div class="explosion"> 
+            <div class="explosion"> 
             <img src="Images/Explosion.png" />
-        </div> -->
-            <div class="ship">
+            </div> -->
+            <!-- <div class="ship">
                 <img src="Images/ship2.png" />
                 <div class="missile">
-                    <img src="Images/missle2.png" />
-                </div>
+                      <img src="Images/missle2.png" />
+                </div> -->
             </div>
+
+
         </div>
 
     </div>
@@ -46,20 +48,17 @@
         <audio class="music" autoplay controls>
             <!-- <source src="Audio/01 Main Theme.mp3" type="audio/mpeg"> -->
         </audio>
-        <button class="controls"> &larr; Left</button>
+        <button class="controls"> &#8678; Left</button>
         <button class="space">Space Bar = shoot</button>
-        <button class="controls"> &#8594; Right </button>
-        <div class="gameInfo">
-
-            <p>Timer:<span class="countDown"></span></p>
-            <p>Score:</p>
-
-        </div>
+        <button class="controls"> &#8680; Right </button>
+        
+        
     </div>
 
-    <div class="missleAudio">
-        <audio controls style="display:none">
+    <div>
+        <audio class="missileAudio">
             <source src="Audio/science_fiction_laser_004.mp3" type="audio/mpeg">
+            <source src="Audio/science_fiction_laser_004.mp3" type="audio/ogg">
         </audio>
     </div>
 

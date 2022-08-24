@@ -1,170 +1,192 @@
+const grid = document.querySelector('.grid')
+const resultsDisplay = document.querySelector('.results')
+let currentPlayerIndex = 202
+let currentStationIndex = 219
+let width = 15
+let direction = 1
+let cometId
+let goingRight = true
+let cometsRemoved = []
+let results = 0
 
-// /* Required functionality:
+for (let i = 0; i < 225; i++) {
+  const square = document.createElement('div')
+  grid.appendChild(square)
+}
 
-// //Start button to start
-// //Pause button to pause game??
-// //Spaceship to move left/right on press of arrow keys
-// //Spaceship to fire on press of spacebar
-// //Lazers to move from bottom to top until comet/block hit or move off screen
-// //Blocks to move left to right
-// //Comets to move left to right
+const squares = Array.from(document.querySelectorAll('.grid div'))
 
-// //Blocks/comets to spawn over height of grid.
-// //Blocks/comets to dissapear after hit
-// //Blocks to dissapear if complete column on right.
+//Starting Locations
+const approachingComets = [
+  0,1,2,3,4,5,6,7,8,9,
+  15,16,17,18,19,20,21,22,23,24,
+  30,31,32,33,34,35,36,37,38,39
+]
 
-// //Timer for length of round??
-// //Score counter:
-//         +1 when comet hit or blocks lined up
-//         -1 when coment hits blocks or blocks accidently shot
-// //Name prompt for scoreboard after lose/win?? */
+const movingStation = [219, 220, 221]
 
-
-// //Button mouse over effects ***************************************************************************************
-// $('.buttons').mouseover(function () {
-//     let box = $(this);
-//     box.css({ backgroundColor: 'rgba(225, 225, 225, 0.75)', color: "black", 'border-left': '3px solid white', 'border-bottom': '3px solid white' });
-// });
-
-// $('.buttons').mouseleave(function () {
-//     let box = $(this);
-//     box.css({ backgroundColor: 'rgba(225, 225, 225, 0.5)', color: 'white', 'border-left': '0px', 'border-bottom': '0px' });
-// });
+squares[currentStationIndex].classList.add('station')
 
 
-// Spaceship movement ************************************************************
-
-
-
-// var $div = $('.ship');
-// $(document).keydown(function (e) {
-//     switch (e.which) {
-//         case 37:
-//             $div.css('left', $div.offset().left - 15);
-//             break;
-//         case 39:
-//             $div.css('left', $div.offset().left + 15);
-//     }
-// });
-
-// game window = 1000px;
-//if space bar is pushed (which it will be to fire) the left/right movement is stopped
-
-// *********************************************************************************
-
-// MissIle
-
-// Missile fires on space bar press   
-$(document).keydown(function (e) {
-    $(".missile").animate({
-        top: "250"
-    })  
-    switch (e.which) {
-        case 32:     
-            $(".missile").animate({
-                top: "-=600"
-            })
+function draw() {
+  for (let i = 0; i < approachingComets.length; i++) {
+    if(!cometsRemoved.includes(i)) {
+      squares[approachingComets[i]].classList.add('comet')
     }
-});
+  }
+}
 
-// Missle sounds on space bar press
-// document.addEventListener('keydown', function(e) {
-//     if (e.keycode == 32){
-//       document.getElementById('.missleAudio').play();
-//     }
-//   });
+draw()
 
+function remove() {
+  for (let i = 0; i < approachingComets.length; i++) {
+    squares[approachingComets[i]].classList.remove('comet')
+  }
+}
 
-// //     id = setInterval(frame, 5); // calls the function again after every 5 milisecs.
-
-// ***************************************************************************
-
-// COMETS / BLOCKS
-
-// Random comet height
-const cometHeight = [310, 110, -110, -310];
-const cometRandomHeight = cometHeight[Math.floor(Math.random() * cometHeight.length)];
-console.log(cometRandomHeight);
-
-//Random block height  (falling foul of DRY here? )
-var blockHeight = [310, 110, -110, -310];
-var blockRandomHeight = blockHeight[Math.floor(Math.random() * blockHeight.length)];
-console.log(blockRandomHeight);
-
-//Random interval between blocks/comets being called
-const interval = [1000, 1500, 2000, 2500];
-const randomInterval = interval[Math.floor(Math.random() * interval.length)];
-console.log(randomInterval);
-
-//Comet on page load
-$(document).ready(function () {
-    $(".comet").animate({
-        bottom: cometRandomHeight, right: "-=1000",
-    }, 2000, "linear")
-});
-
-//Comet repeat after interval
-$.when( $.ready ).then(function() {
-    $(".comet").animate({
-        bottom: cometRandomHeight, right: "+=1000",  
-    }, 3500, "linear")
-  });
-
-//Block on page load
-$(document).ready(function () {
-    $(".block").animate({
-        bottom: blockRandomHeight, right: "-=1000",
-    }, 2500, "linear")
-});
-
-// How to now call each automatically at seperate intervals
+squares[currentPlayerIndex].classList.add('player')
 
 
+function movePlayer(e) {
+  squares[currentPlayerIndex].classList.remove('player')
+  switch(e.key){
+    case 'ArrowLeft':
+      if (currentPlayerIndex % width !== 0) currentPlayerIndex -=1
+      break
+    case 'ArrowRight' :
+      if (currentPlayerIndex % width < width -1) currentPlayerIndex +=1
+      break
+  }
+  squares[currentPlayerIndex].classList.add('player')
+}
+document.addEventListener('keydown', movePlayer)
 
-// **************************************
+function moveComets() {
+  const leftEdge = approachingComets[0] % width === 0
+  const rightEdge = approachingComets[approachingComets.length - 1] % width === width -1
+  remove()
 
-// // countdown timer - new game button press
-// var countDown = 6000;
-// setInterval(function () {
-//     countDown = countDown - 1;
-//     const elementCountDown = document.getElementById("countDown");
+  //Identifies the board edges
+  if (rightEdge && goingRight) {
+    for (let i = 0; i < approachingComets.length; i++) {
+      approachingComets[i] += width +1
+      direction = -1
+      goingRight = false
+    }
+  }
 
-//     elementCountDown.style.color = "red";
-//     elementCountDown.style.color.textAlign = "center";
-//     elementCountDown.style.fontSize = "24px";
+  if(leftEdge && !goingRight) {
+    for (let i = 0; i < approachingComets.length; i++) {
+      approachingComets[i] += width -1
+      direction = 1
+      goingRight = true
+    }
+  }
 
-//     elementCountDown.innerHTML = countDown;
-//     if (countDown < 0) {
-//         clearInterval(elementCountDown);
-//         elementCountDown.innerHTML = "GAME OVER";
-//     }
-// }, 1000);
+  for (let i = 0; i < approachingComets.length; i++) {
+    approachingComets[i] += direction
+  }
+
+  draw()
+
+  if (squares[currentPlayerIndex].classList.contains('comet', 'player')) {
+    resultsDisplay.innerHTML = 'GAME OVER'
+    clearInterval(cometId)
+  }
+
+  for (let i = 0; i < approachingComets.length; i++) {
+    if(approachingComets[i] > (squares.length)) {
+      resultsDisplay.innerHTML = 'GAME OVER'
+      clearInterval(cometId)
+    }
+  }
+  if (cometsRemoved.length === approachingComets.length) {
+    resultsDisplay.innerHTML = 'YOU WIN'
+    clearInterval(cometId)
+  }
+}
+
+// **********************************************************
+
+function moveStation() {
+    const leftEdge = movingStation[0] % width === 0
+    const rightEdge = movingStation[movingStation.length - 1] % width === width -1
+    remove()
+  
+    //Identifies the board edges
+    if (rightEdge && goingRight) {
+      for (let i = 0; i < movingStation.length; i++) {
+        movingStation[i] += width +1
+        direction = -1
+        goingRight = false
+      }
+    }
+  
+    if(leftEdge && !goingRight) {
+      for (let i = 0; i < movingStation.length; i++) {
+        movingStation[i] += width -1
+        direction = 1
+        goingRight = true
+      }
+    }
+  
+    for (let i = 0; i < movingStation.length; i++) {
+        movingStation[i] += direction
+    }
+  
+    draw()
+  
+    // if (squares[currentPlayerIndex].classList.contains('comet', 'player')) {
+    //   resultsDisplay.innerHTML = 'GAME OVER'
+    //   clearInterval(cometId)
+    // }
+  
+    // for (let i = 0; i < approachingComets.length; i++) {
+    //   if(approachingComets[i] > (squares.length)) {
+    //     resultsDisplay.innerHTML = 'GAME OVER'
+    //     clearInterval(cometId)
+    //   }
+    // }
+    // if (cometsRemoved.length === approachingComets.length) {
+    //   resultsDisplay.innerHTML = 'YOU WIN'
+    //   clearInterval(cometId)
+    // }
+  }
+
+// **************************************************************
+
+cometId = setInterval(moveComets, 500)
 
 
-// // //onclick of new game button *************************************************************
+function shoot(e) {
+  let missileId
+  let currentLaserIndex = currentPlayerIndex
+  function moveMissile() {
+    squares[currentLaserIndex].classList.remove('missile')
+    currentLaserIndex -= width
+    squares[currentLaserIndex].classList.add('missile')
 
-// // //Game window opens
-// // $('.game').on("click", (function ()) {
-// //     // window.open("https://www.codexworld.com/", "_self");
-// //     window.location.replace("http://www.w3schools.com");
-// // });
+    if (squares[currentLaserIndex].classList.contains('comet')) {
+      squares[currentLaserIndex].classList.remove('missile')
+      squares[currentLaserIndex].classList.remove('comet')
+      squares[currentLaserIndex].classList.add('explosion')
 
-// // //
-// // function newGame() {
+      setTimeout(()=> squares[currentLaserIndex].classList.remove('explosion'), 50)
+      clearInterval(missileId)
 
-// //     let id = null;
-// //     const ele = document.getElementById("comet");
-// //     let pos = 0;
+      const cometRemoved = approachingComets.indexOf(currentLaserIndex)
+      cometsRemoved.push(cometRemoved)
+      results++
+      resultsDisplay.innerHTML = results
+      console.log(cometsRemoved)      
 
-// //     id = setInterval(frame, 5); // calls the function again after every 5 milisecs.
+    }             
 
-// //     function frame() {
-// //         if (pos == 900) {
-// //             clearInterval(id);
-// //         }
-// //         else {
-// //             pos++;
-// //             ele.style.left = pos + "px"; // moves left to right
-// //         }
-// //     }
-// // };
+  }
+  switch(e.key) {
+    case 'ArrowUp':
+      missileId = setInterval(moveMissile, 100)
+  }
+}
+
+document.addEventListener('keydown', shoot)
