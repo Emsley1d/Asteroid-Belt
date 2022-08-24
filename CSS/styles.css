@@ -82,8 +82,11 @@ hr {
     align-items: center;
     padding-bottom: 20px;
     padding-top: 20px;
-
 }
+p {
+    /* font-size: 30px; */
+}
+
 
 a {
     margin-left: 300px;
@@ -126,6 +129,9 @@ a {
 
 .explosion {
     background-image: url(../Images/explosion.png);
+}
+.shipexplosion {
+    background-color: url(../Images/shipexplosion.png);
 }
 
 .results {

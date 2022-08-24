@@ -1,7 +1,6 @@
 const grid = document.querySelector(".grid");
 const resultsDisplay = document.querySelector(".results");
 let currentPlayerIndex = 318;
-let currentStationIndex = 285;
 let width = 22;
 let direction = 1;
 let cometId;
@@ -26,9 +25,6 @@ const approachingComets = [
   ];
 
 
-const Station = [219, 220, 221];
-
-squares[currentStationIndex].classList.add("station");
 
 function draw() {
   for (let i = 0; i < approachingComets.length; i++) {
@@ -92,6 +88,15 @@ function moveComets() {
   draw();
 
   if (squares[currentPlayerIndex].classList.contains("comet", "player")) {
+        squares[currentPlayerIndex].classList.remove("comet")
+        squares[currentPlayerIndex].classList.remove("player");
+        squares[currentPlayerIndex].classList.add("explosion");
+
+        setTimeout(
+            () => squares[currentMissileIndex].classList.remove("explosion"),
+            120
+        )
+
     resultsDisplay.innerHTML = "GAME OVER";
     clearInterval(cometId);
   }
@@ -125,7 +130,7 @@ function shoot(e) {
 
       setTimeout(
         () => squares[currentMissileIndex].classList.remove("explosion"),
-        60
+        120
       );
       clearInterval(missileId);
 
