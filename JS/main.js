@@ -9,7 +9,7 @@ let goingRight = true;
 let cometsRemoved = [];
 let results = 0;
 
-for (let i = 0; i < 320; i++) {
+for (let i = 0; i < 360; i++) {
   const square = document.createElement("div");
   grid.appendChild(square);
 }
@@ -129,17 +129,6 @@ function shoot(e) {
       );
       clearInterval(missileId);
 
-    if (squares[currentStationIndex].classList.contains("comet")) {
-        squares[currentMissileIndex].classList.remove("comet");
-        squares[currentMissileIndex].classList.remove("station");
-        squares[currentMissileIndex].classList.add("explosion");
-
-      setTimeout(
-        () => squares[currentMissileIndex].classList.remove("explosion"),
-        60
-      );
-      clearInterval(missileId);
-
       const cometRemoved = approachingComets.indexOf(currentMissileIndex);
       cometsRemoved.push(cometRemoved);
       results++;
@@ -147,11 +136,10 @@ function shoot(e) {
       console.log(cometsRemoved);
     }
   }
-  }
+
   switch (e.key) {
     case "ArrowUp":
       missileId = setInterval(moveMissile, 400);
   }
 }
-
 document.addEventListener("keydown", shoot);
