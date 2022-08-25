@@ -32,7 +32,8 @@ h1 {
 }
 
 h3 {
-    font-size: 30px;
+    color: white;
+    font-weight: bolder
 }
 
 
@@ -61,8 +62,8 @@ button {
     font-size: 20px;
     font-weight: bold;
     cursor: auto;
-    margin-left: 15px;
-    margin-right: 15px;;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .music {
@@ -83,9 +84,7 @@ hr {
     padding-bottom: 20px;
     padding-top: 20px;
 }
-p {
-    /* font-size: 30px; */
-}
+
 
 
 a {
@@ -96,12 +95,12 @@ a {
 }
 
 .grid {
-    width: 900px;
+    width: 880px;
     height: 600px;
     border: solid 2px rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
-    /* background-image: url("https://petapixel.com/assets/uploads/2021/09/FAd5D2dWQAAdSrK-1536x1025.jpg"); */
+    /* background-image: url("https://www.wallpaperflare.com/static/598/344/38/sky-planet-earth-blue-wallpaper-preview.jpg"); */
     background-color: black;
 
 }
@@ -129,9 +128,6 @@ a {
 
 .explosion {
     background-image: url(../Images/explosion.png);
-}
-.shipexplosion {
-    background-color: url(../Images/shipexplosion.png);
 }
 
 .results {

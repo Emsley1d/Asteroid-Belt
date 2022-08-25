@@ -15,9 +15,9 @@ for (let i = 0; i < 360; i++) {
 
 const squares = Array.from(document.querySelectorAll(".grid div"));
 
-//Starting Locations
+//Comet starting locations
 const approachingComets = [
-    0, 1, 2, 7, 8, 9, 10, 13, 14, 17,
+    0, 1, 2, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
     23, 24, 26, 27, 29, 30, 31, 32, 34, 35, 39, 40, 41,
     44, 46, 47, 48, 49, 52, 53, 57, 58, 59, 60, 62, 63,
     66, 69, 70, 75, 76, 77, 80, 82, 83, 85,
@@ -25,7 +25,7 @@ const approachingComets = [
   ];
 
 
-
+//Draws comets
 function draw() {
   for (let i = 0; i < approachingComets.length; i++) {
     if (!cometsRemoved.includes(i)) {
@@ -36,6 +36,7 @@ function draw() {
 
 draw();
 
+//RemoveS comets to simulate the animation
 function remove() {
   for (let i = 0; i < approachingComets.length; i++) {
     squares[approachingComets[i]].classList.remove("comet");
@@ -44,6 +45,7 @@ function remove() {
 
 squares[currentPlayerIndex].classList.add("player");
 
+//Player movement left & right
 function movePlayer(e) {
   squares[currentPlayerIndex].classList.remove("player");
   switch (e.key) {
@@ -87,34 +89,36 @@ function moveComets() {
 
   draw();
 
-  if (squares[currentPlayerIndex].classList.contains("comet", "player")) {
+//Simulates comets hitting the player
+  if (squares[currentPlayerIndex].classList.contains("comet","player")) {
         squares[currentPlayerIndex].classList.remove("comet")
         squares[currentPlayerIndex].classList.remove("player");
         squares[currentPlayerIndex].classList.add("explosion");
 
         setTimeout(
             () => squares[currentMissileIndex].classList.remove("explosion"),
-            120
+            150
         )
 
+//Posts results
     resultsDisplay.innerHTML = "GAME OVER";
     clearInterval(cometId);
   }
-
   for (let i = 0; i < approachingComets.length; i++) {
     if (approachingComets[i] > squares.length) {
-      resultsDisplay.innerHTML = "GAME OVER";
+      resultsDisplay.innerHTML = "GAME OVER; YOU DIED";
       clearInterval(cometId);
     }
   }
   if (cometsRemoved.length === approachingComets.length) {
-    resultsDisplay.innerHTML = "YOU WIN";
+    resultsDisplay.innerHTML = "CONGRATULATIONS, YOU WON!";
     clearInterval(cometId);
   }
 }
 
-cometId = setInterval(moveComets, 200);
+cometId = setInterval(moveComets, 250);
 
+//shooting function for missile animation
 function shoot(e) {
   let missileId;
   let currentMissileIndex = currentPlayerIndex;
@@ -122,7 +126,8 @@ function shoot(e) {
     squares[currentMissileIndex].classList.remove("missile");
     currentMissileIndex -= width;
     squares[currentMissileIndex].classList.add("missile");
-
+  
+//Simulates missiles hitting comets
     if (squares[currentMissileIndex].classList.contains("comet")) {
       squares[currentMissileIndex].classList.remove("missile");
       squares[currentMissileIndex].classList.remove("comet");
@@ -142,9 +147,10 @@ function shoot(e) {
     }
   }
 
+//Key press for player to shoot
   switch (e.key) {
     case "ArrowUp":
-      missileId = setInterval(moveMissile, 400);
+      missileId = setInterval(moveMissile, 50);
   }
 }
 document.addEventListener("keydown", shoot);
