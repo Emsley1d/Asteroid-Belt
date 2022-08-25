@@ -1,7 +1,9 @@
+
 const grid = document.querySelector(".grid");
 const resultsDisplay = document.querySelector(".results");
 let currentPlayerIndex = 318;
 let width = 22;
+let height = 15;
 let direction = 1;
 let cometId;
 let goingRight = true;
@@ -36,7 +38,7 @@ function draw() {
 
 draw();
 
-//RemoveS comets to simulate the animation
+//Removes comets to simulate the animation
 function remove() {
   for (let i = 0; i < approachingComets.length; i++) {
     squares[approachingComets[i]].classList.remove("comet");
@@ -61,6 +63,7 @@ function movePlayer(e) {
 document.addEventListener("keydown", movePlayer);
 
 function moveComets() {
+  const bottomEdge = approachingComets[0] % height ===0;
   const leftEdge = approachingComets[0] % width === 0;
   const rightEdge =
     approachingComets[approachingComets.length - 2] % width === width - 1;
