@@ -130,6 +130,11 @@ a {
     background-image: url(../Images/explosion.png);
 }
 
+.dead {
+    background-image: url(../Images/dead.png);
+
+}
+
 .results {
     font-size: 20px;
     color: red;

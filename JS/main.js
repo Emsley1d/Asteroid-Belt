@@ -24,9 +24,6 @@ const approachingComets = [
   98, 99, 100,
 ];
 
-//IndexOf approaching comet positions
-console.log(approachingComets.indexOf(8));
-
 
 //Draws comets
 function draw() {
@@ -64,6 +61,7 @@ function movePlayer(e) {
 }
 document.addEventListener("keydown", movePlayer);
 
+//Comet movement
 function moveComets() {
   const leftEdge = approachingComets[0] % width === 0;
   const rightEdge =
@@ -105,23 +103,26 @@ function moveComets() {
       150
     );
 
-    //Posts results
+    // Posts results
     resultsDisplay.innerHTML = "GAME OVER";
     clearInterval(cometId);
   }
 
+  //If comets reach bottom of game
   for (let i = 0; i < approachingComets.length; i++) {
-    if (approachingComets[i] > squares.length) {
-      resultsDisplay.innerHTML = "GAME OVER; YOU DIED";
+    if (approachingComets[i] >=312) {
+        squares[currentPlayerIndex].classList.remove("player");
+    squares[currentPlayerIndex].classList.add("dead");
+      resultsDisplay.innerHTML = "GAME OVER; YOU DIED"
       clearInterval(cometId);
     }
-  }
+  } }
+  
   // If all comets are hit:
   if (cometsRemoved.length === approachingComets.length) {
     resultsDisplay.innerHTML = "CONGRATULATIONS, YOU WON!";
     clearInterval(cometId);
   }
-}
 //Time for how quickly the comets move:
 cometId = setInterval(moveComets, 250);
 
@@ -139,6 +140,9 @@ function shoot(e) {
       squares[currentMissileIndex].classList.remove("missile");
       squares[currentMissileIndex].classList.remove("comet");
       squares[currentMissileIndex].classList.add("explosion");
+
+// if >=311 then game over
+
 
     //   work out index of comet location, then compare index so if bigger than 311 = game over.
 
