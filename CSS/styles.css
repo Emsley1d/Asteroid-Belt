@@ -130,13 +130,8 @@ a {
     background-image: url(../Images/explosion.png);
 }
 
-.dead {
-    background-image: url(../Images/dead.png);
-
-}
-
 .results {
-    font-size: 20px;
+    font-size: 25px;
     color: red;
 }
 

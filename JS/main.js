@@ -112,7 +112,7 @@ function moveComets() {
   for (let i = 0; i < approachingComets.length; i++) {
     if (approachingComets[i] >=312) {
         squares[currentPlayerIndex].classList.remove("player");
-    squares[currentPlayerIndex].classList.add("dead");
+    squares[currentPlayerIndex].classList.add("explosion");
       resultsDisplay.innerHTML = "GAME OVER; YOU DIED"
       clearInterval(cometId);
     }
@@ -141,10 +141,6 @@ function shoot(e) {
       squares[currentMissileIndex].classList.remove("comet");
       squares[currentMissileIndex].classList.add("explosion");
 
-// if >=311 then game over
-
-
-    //   work out index of comet location, then compare index so if bigger than 311 = game over.
 
       //timer for how long explosion flashes for (falling foul of DRY slightly)
 
@@ -158,8 +154,6 @@ function shoot(e) {
       cometsRemoved.push(cometRemoved);
       results++;
       resultsDisplay.innerHTML = results;
-      //Array of comets removed doesnt match comet starting locations??
-      console.log(cometsRemoved);
     }
   }
 
