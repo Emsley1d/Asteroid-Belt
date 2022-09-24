@@ -203,39 +203,7 @@ Although I solved a number of the issues I came across I had a number which I si
 
 I came to realise the majority of issues I faced with the animation were as a result of my original approach. I created a single div in which I included individual divs for each asset:
 
-\<divclass="gameWindow"\>
-
-\<divclass="asteroid"\>
-
-\<imgsrc="Images/asteroid.png"/\>
-
-\</div\>
-
-\<divclass="block"\>
-
-\<imgsrc="Images/block.png"/\>
-
-\</div\>
-
-\<divclass="explosion"\>
-
-\<imgsrc="Images/Explosion.png"/\>
-
-\</div\>
-
-\<divclass="ship"\>
-
-\<imgsrc="Images/ship2.png"/\>
-
-\<divclass="missile"\>
-
-\<imgsrc="Images/missle2.png"/\>
-
-\</div\>
-
-\</div\>
-
-\</div\>
+![div](/Images/Screenshot%202022-09-24%20at%2014.09.22.png
 
 Other than defining the position, height and width of the div in CSS I didn't provide the div with any further properties. As previously stated; I purposefully threw myself in at the deep end and was keen to test my own skills; up until this point I had purposefully not taken to Google or any other online resources but I underestimated the task at hand.
 
@@ -247,79 +215,26 @@ I decided to replace my single "gameWindow" div with a "grid" div. I split the g
 
 //Asteroid starting locations
 
-constapproachingAsteroids = [
-
-0, 1, 2, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 23, 24, 26, 27, 29,
-
-30, 31, 32, 34, 35, 39, 40, 41, 44, 46, 47, 48, 49, 50, 51, 52, 53, 57, 58,
-
-59, 60, 62, 63, 66, 69, 70, 75, 76, 77, 80, 82, 83, 85, 88, 90, 93, 94, 96,
-
-98, 99, 100,
-
-];
+![asteroid](/Images/Screenshot%202022-09-24%20at%2014.11.00.png)
 
 And plot the starting position of the player; again just by listing a numbered div:
 
-letcurrentPlayerIndex = 318;
+![player](/Images/Screenshot%202022-09-24%20at%2014.14.39.png)
 
 However; I knew taking this approach would mean I couldn't fulfil the personal goal I set myself of having smooth animation for each asset. Although disappointing; it meant I could progress with my project.
 
 I could animate each asteroid by drawing and then removing the asteroids from individual squares by adding and removing classes:
 
-//Draws asteroids
+![draw](/Images/Screenshot%202022-09-24%20at%2014.17.57.png)
 
-functiondraw() {
-
-for (leti = 0; i \< approachingAsteroids.length; i++) {
-
-if (!asteroidsRemoved.includes(i)) {
-
-squares[approachingAsteroids[i]].classList.add("asteroid");
-
-}
-
-console.log(approachingAsteroids.indexOf("50"));
-
-}
-
-}
-
-draw();
-
-//then removes asteroids to simulate the animation
-
-functionremove() {
-
-for (leti = 0; i \< approachingAsteroids.length; i++) {
-
-squares[approachingAsteroids[i]].classList.remove("asteroid");
-
-}
-
-}
 
 Using this same method (of adding and removing classes) I was particularly happy with how I could 'animate' the interaction of assets colliding. The below covers the event of a missile destroying a asteroid (by occupying the same numbered div):
 
-//Simulates missiles hitting asteroids
-
-if (squares[currentMissileIndex].classList.contains("asteroid")) {
-
-squares[currentMissileIndex].classList.remove("missile");
-
-squares[currentMissileIndex].classList.remove("asteroid");
-
-squares[currentMissileIndex].classList.add("explosion");
+![collision](/Images/Screenshot%202022-09-24%20at%2014.19.06.png)
 
 After adding the class of "explosion" I could then set a timer for how long the class appeared for before removing it. Doing so rendered the explosion as a brief flash animation. I played around with the setTimeout method and added a second explosion class (with another explosion image) to see if I could better the explosion animation before ultimately deciding to just use the one class:
 
-setTimeout(
-
-() =\>squares[currentMissileIndex].classList.remove("explosion"),
-
-120
-
-);
+![timeout](/Images/Screenshot%202022-09-24%20at%2014.19.18.png)
 
 Unfortunately; having effectively restarted my game halfway through the week I didn't have sufficient time to add anything beyond the basic game or fix.
 
@@ -336,17 +251,9 @@ Unfortunately; having effectively restarted my game halfway through the week I d
 - To throw myself in at the deep end with my original project idea and push myself outside of my comfort zone. I had a lot of unanswered questions as to how I would create some of the functionality but was happy to investigate how to do so under my own initiative.
 - I made the game genuinely challenging by fine tuning the number of starting asteroids and the setInterval for both the missiles and asteroids. This changed the rate at which the classes were drawn and removed from the squares effectively changing the speed at which both moved:
 
-//Time for how quickly the asteroids move:
+![interval](/Images/Screenshot%202022-09-24%20at%2014.23.05.png)
 
-asteroidId = setInterval(moveAsteroids, 250);
-
-//Key press for player to shoot
-
-switch (e.key) {
-
-case"ArrowUp":
-
-missileId = setInterval(moveMissile, 50);
+![interval2](/Images/Screenshot%202022-09-24%20at%2014.23.22.png)
 
 - My knowledge of HTML, CSS and JavaScript and how each interacts grew exponentially during the project.
 - The sheer amount of enjoyment I got from working on the project; each day was very long but I enjoyed every minute of it.
