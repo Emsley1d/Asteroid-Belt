@@ -113,19 +113,15 @@ a {
 .comet { 
     background-image: url(../Images/comet.png);
 }
-
 .player {
     background-image: url(../Images/ship2.png);
 }
-
 .missile {
     background-image: url(../Images/missle2.png);
 } 
-
 .station {
     background-image: url(../Images/block.png);
 }
-
 .explosion {
     background-image: url(../Images/explosion.png);
 }

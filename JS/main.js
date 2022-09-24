@@ -25,6 +25,7 @@ const approachingComets = [
 ];
 
 
+
 //Draws comets
 function draw() {
   for (let i = 0; i < approachingComets.length; i++) {

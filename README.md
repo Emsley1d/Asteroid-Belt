@@ -64,13 +64,11 @@ My original idea was for a game that borrowed elements from both Space Invaders 
 
 As below; I wireframed my original concept in Figma to ensure I was happy with my idea. To explain; both comets and building blocks would move across the screen from left to right; the player would need to move themselves left to right along the bottom of the screen and shoot to destroy the comets. The building blocks would line up down the right-hand side of the screen to create a 'space-station' which the player would need to defend from the comets. Once a column of station had been lined up the player would score and that line of station would disappear; as per a completed line in tetris.
 
-![alt text](/path/img.jpg "Optional Title")
-
-![planning](RackMultipart20220924-1-n26kx7_html_a7c2d40688dd9c49.png)
+![Initial Concept](/Initial%20Concept.png)
 
 I then wireframed a title screen; this included buttons for New Game, Scoreboard, Options etc - all planned functionality.
 
-![](RackMultipart20220924-1-n26kx7_html_a4dd2eb9139354ae.png)
+![Title Screen](/Title%20Screen.png)
 #
 
 ## Build/Code Process:
