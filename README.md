@@ -64,11 +64,11 @@ My original idea was for a game that borrowed elements from both Space Invaders 
 
 As below; I wireframed my original concept in Figma to ensure I was happy with my idea. To explain; both comets and building blocks would move across the screen from left to right; the player would need to move themselves left to right along the bottom of the screen and shoot to destroy the comets. The building blocks would line up down the right-hand side of the screen to create a 'space-station' which the player would need to defend from the comets. Once a column of station had been lined up the player would score and that line of station would disappear; as per a completed line in tetris.
 
-![Initial Concept](/Initial%20Concept.png)
+![Initial Concept](/Images/Initial%20Concept.png)
 
 I then wireframed a title screen; this included buttons for New Game, Scoreboard, Options etc - all planned functionality.
 
-![Title Screen](/Title%20Screen.png)
+![Title Screen](/Images/Title%20Screen.png)
 #
 
 ## Build/Code Process:
@@ -169,13 +169,13 @@ Once I was happy with my list of functionality and basic page maps I created an 
 
 I knew I always wanted to create my own assets (and set this as a personal goal) as opposed to having coloured shapes for each moving element. I think doing so personalises the game and lifts the overall aesthetic. I created the below images in Piskel and imported them to my project folder:
 
-![](RackMultipart20220924-1-n26kx7_html_2f13b5e7d01cb04c.png)
+![Pixel Art](/Images/Screenshot%202022-09-08%20at%2009.11.43.png)
 
 ### Step 5:
 
 Having completed the above steps I started to write my code. I updated my index.html and styles.css files to create a near final title page:
 
-![](RackMultipart20220924-1-n26kx7_html_627c5fabe8006208.png)
+![Title](/Images/Title.png)
 
 Having also just learnt jQuery I was keen to include some in my project so I was quick to add mouseover effects for the above buttons:
 
