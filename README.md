@@ -179,41 +179,21 @@ Having completed the above steps I started to write my code. I updated my index.
 
 Having also just learnt jQuery I was keen to include some in my project so I was quick to add mouseover effects for the above buttons:
 
-**//Button mouse over effects**
-
-**$**** ( ****'button'**** ). ****mouseover**** ( ****function** **() {**
-
-**let**** box **** = **** $****(****this****);**
-
-**box****. ****css**** ({ **** backgroundColor:****'rgba(225, 225, 225, 0.75)'****, **** color: ****"black"**** , ****'border-left' ****:****'3px solid white' ****,**  **'border-bottom'**** : ****'3px solid white'** **});**
-
-**});**
-
-**$**** ( ****'button'**** ). ****mouseleave**** ( ****function** **() {**
-
-**let**** box **** = **** $****(****this****);**
-
-**box****. ****css**** ({ **** backgroundColor:****'rgba(225, 225, 225, 0.5)'****, **** color: ****'white'**** , ****'border-left' ****:****'0px' ****,**  **'border-bottom'**** : ****'0px'** **});**
-
-**});**
+![jquery](/Images/Screenshot%202022-09-24%20at%2014.03.11.png)
 
 I then created a second HTML file on which I started to construct my game and imported my assets in CSS.
 
 I managed to animate all the moving assets and had a few wins; my original method of moving assets using stop animate was fairly jerky and stop start:
 
-stop().animate()
+![stop](/Images/Screenshot%202022-09-24%20at%2014.03.31.png)
 
 As per my personal goals I wanted to try and achieve smooth animation so I tried the below which resolved the issue:
 
-$div.css('left', $div.offset().left - 15)
+![smooth](/Images/Screenshot%202022-09-24%20at%2014.03.49.png)
 
 I also found both the asteroid and blocks would noticeably accelerate from the left of the page and then decelerate to their resting position on the right. I solved the problem by using the value of "linear" as opposed to my the previous value of "constant":
 
-$(".asteroid").animate({
-
-bottom:asteroidRandomHeight, right:"-=1000",
-
-}, 2000, "linear");
+![asteroid](/Images/Screenshot%202022-09-24%20at%2014.04.06.png)
 
 Although I solved a number of the issues I came across I had a number which I simply struggled to overcome. Despite having managed to animate all the in-game assets I couldn't control them in the manner I wanted:
 
