@@ -115,51 +115,11 @@ I started by listing the different assets I would need; Spaceship, Asteroid, Blo
 
 Once I was happy with my list of functionality I started to map out the HTML pages for each corresponding button on the title screen; New Game, Scoreboard and Options. I thought doing so would help me better understand what functionality or assets needed to go where and ultimately how each page would interact with each other:
 
-**User clicks 'New Game':**
+![newgame](/Images/Screenshot%202022-09-24%20at%2014.34.33.png)
 
-| **TITLE SCREEN** | | | |
-| --- | --- | --- | --- |
-| **User clicks New Game -\>** | Game Screen Loads |
- | |
-| | 3 Second countdown timer starts |
- | |
-| | All sound events triggered on |
- | |
-| | Spaceship Appears |
- | |
-| | Asteroids/blocks start appearing from right |
- | |
-| | End game countdown starts |
- | |
-| | Score count starts |
- | |
-| | Life count starts |
- | |
-| | Timer finishes/all lives lost -\> | End game message appears | |
-| |
- | Scoreboard and enter name appears | |
-| |
- | Name populated | |
-| | | Success message appears -\> | **USER RETURNED TO TITLE SCREEN** |
+![scoreboard](/Images/Screenshot%202022-09-24%20at%2014.34.49.png)
 
-**User clicks 'Scoreboard':**
-
-| **TITLE SCREEN** | | |
-| --- | --- | --- |
-| **User Clicks Scoreboard -\>** | Leaderboard screen appears | |
-| | Back button appears | |
-| | User clicks back button -\> | **USER RETURNED TO TITLE SCREEN** |
-
-**User clicks 'Options':**
-
-| **TITLE SCREEN** | | |
-| --- | --- | --- |
-| **User clicks Options -\>** | Options screen appears | |
-| | Back button appears | |
-| | On/off toggle button for background music appears | |
-| | On/off toggle buttons for game sounds appear | |
-| | Success message appears if anything changed | |
-| | User clicks back button -\> | **USER RETURNED TO TITLE SCREEN** |
+![options](/Images/Screenshot%202022-09-24%20at%2014.34.59.png)
 
 ### Step 3:
 
@@ -203,7 +163,7 @@ Although I solved a number of the issues I came across I had a number which I si
 
 I came to realise the majority of issues I faced with the animation were as a result of my original approach. I created a single div in which I included individual divs for each asset:
 
-![div](/Images/Screenshot%202022-09-24%20at%2014.09.22.png
+![div](/Images/Screenshot%202022-09-24%20at%2014.09.22.png)
 
 Other than defining the position, height and width of the div in CSS I didn't provide the div with any further properties. As previously stated; I purposefully threw myself in at the deep end and was keen to test my own skills; up until this point I had purposefully not taken to Google or any other online resources but I underestimated the task at hand.
 
