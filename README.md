@@ -8,7 +8,7 @@ This was my first of four projects for the Software Engineering Immersive course
 
 You can find my game at:
 
-[https://emsley1d.github.io/Asteroid-Belt/](https://emsley1d.github.io/Asteroid-Belt/)
+[https://emsley1d.github.io/Project01-Asteroid-Belt/](https://emsley1d.github.io/Project01-Asteroid-Belt/)
 #
 
 ## Technologies Used:
