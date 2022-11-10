@@ -235,15 +235,16 @@ I learnt a number of lessons throughout the project which I will implement in fu
 There are a couple of bugs; nothing game-breaking, rather things that take away from the overall experience and polish of the game:
 
 - You can continue to move the spaceship left and right after the 'Game Over' message as well as continue to fire. If a fired missile then hits a asteroid the 'Game Over' message disappears and the score reappears.
-- The explosion animation (when a asteroid is hit by a missile or a asteroid hits the player) doesn't appear on the deployed game but does when run from a server in VS Code.
-- If a fired missile doesn't hit a asteroid the missile carries on moving and does so beyond the grid div and browser window.
+- The explosion animation (when a asteroid is hit by a missile or an asteroid hits the player) doesn't appear on the deployed game but does when run from a server in VS Code.
+- If a player's browser/screen isn't sufficiently large enough to contain the whole page then when a player presses up the up arrow to fire a missle the screen scrolls up slightly so after a few presses a player might not be able to see what they are doing.  
+- If a fired missile doesn't hit an asteroid the missile carries on moving and does so beyond the grid div and browser window.
 #
 
 ## Future Improvements:
 
 The below were some of my original ideas which I simply ran out of time to implement or were slightly out of reach considering my level of knowledge at the time:
 
-- To first fix the bugs previously detailed.
+- To fix the bugs previously detailed.
 - To implement a title screen (as per my wireframe covered in the 'Planning' section) with links to a scoreboard and options.
 - A scoreboard (with local storage) that requests a player enters their details upon the successful completion of each game.
 - Sound effects with mute buttons or automatic muting after 2 or 3 rounds.
