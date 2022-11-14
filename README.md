@@ -173,7 +173,6 @@ Having realised I would struggle to have a completed game by the deadline I took
 
 I decided to replace my single "gameWindow" div with a "grid" div. I split the grid div into 330 individual divs; each 40px by 40px. Using CSS Flexbox I was able to display this as a 15 x 22 square grid. Taking this approach allowed me to resolve the majority of issues I experienced with my original approach and meant I had a defined game board in which I could contain the asset movement. I could effectively plot the position of each asset in the grid; for example I could plot the starting position of the asteroids by listing a div number:
 
-//Asteroid starting locations
 
 ![asteroid](/Images/Screenshot%202022-09-24%20at%2014.11.00.png)
 
