@@ -84,7 +84,7 @@ I started by listing the different assets I would need; Spaceship, Asteroid, Blo
 | Needs to explode upon contact with a asteroid. |
 
 
-| MISSLES:
+| MISSILES:
 | :--- 
 | Need to move vertically upon key press from the position of the player when fired. |
 | Needs to both explode and disappear upon contact with a asteroid or block. |
@@ -123,7 +123,7 @@ Once I was happy with my list of functionality I started to map out the HTML pag
 
 ### Step 3:
 
-Once I was happy with my list of functionality and basic page maps I created an HTML page and CSS/javaScript files to give me a space in which to work before then creating a repository and saving these to GitHub.
+Once I was happy with my list of functionality and basic page maps I created an HTML page and CSS/JavaScript files to give me a space in which to work before then creating a repository and saving these to GitHub.
 
 ### Step 4:
 
@@ -235,7 +235,7 @@ There are a couple of bugs; nothing game-breaking, rather things that take away 
 
 - You can continue to move the spaceship left and right after the 'Game Over' message as well as continue to fire. If a fired missile then hits a asteroid the 'Game Over' message disappears and the score reappears.
 - The explosion animation (when a asteroid is hit by a missile or an asteroid hits the player) doesn't appear on the deployed game but does when run from a server in VS Code.
-- If a player's browser/screen isn't sufficiently large enough to contain the whole page then when a player presses up the up arrow to fire a missle the screen scrolls up slightly so after a few presses a player might not be able to see what they are doing.  
+- If a player's browser/screen isn't sufficiently large enough to contain the whole page then when a player presses up the up arrow to fire a missile the screen scrolls up slightly so after a few presses a player might not be able to see what they are doing.  
 - If a fired missile doesn't hit an asteroid the missile carries on moving and does so beyond the grid div and browser window.
 #
 
