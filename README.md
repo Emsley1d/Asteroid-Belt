@@ -8,7 +8,7 @@ This was my first of four projects for the Software Engineering Immersive course
 
 You can find my game at:
 
-[https://emsley1d.github.io/Asteroid-Belt/](https://emsley1d.github.io/Asteroid-Belt/)
+[https://emsley1d.github.io/Project01-Asteroid-Belt/](https://emsley1d.github.io/Project01-Asteroid-Belt/)
 #
 
 ## Technologies Used:
@@ -84,7 +84,7 @@ I started by listing the different assets I would need; Spaceship, Asteroid, Blo
 | Needs to explode upon contact with a asteroid. |
 
 
-| MISSLES:
+| MISSILES:
 | :--- 
 | Need to move vertically upon key press from the position of the player when fired. |
 | Needs to both explode and disappear upon contact with a asteroid or block. |
@@ -123,7 +123,7 @@ Once I was happy with my list of functionality I started to map out the HTML pag
 
 ### Step 3:
 
-Once I was happy with my list of functionality and basic page maps I created an HTML page and CSS/javaScript files to give me a space in which to work before then creating a repository and saving these to GitHub.
+Once I was happy with my list of functionality and basic page maps I created an HTML page and CSS/JavaScript files to give me a space in which to work before then creating a repository and saving these to GitHub.
 
 ### Step 4:
 
@@ -173,7 +173,6 @@ Having realised I would struggle to have a completed game by the deadline I took
 
 I decided to replace my single "gameWindow" div with a "grid" div. I split the grid div into 330 individual divs; each 40px by 40px. Using CSS Flexbox I was able to display this as a 15 x 22 square grid. Taking this approach allowed me to resolve the majority of issues I experienced with my original approach and meant I had a defined game board in which I could contain the asset movement. I could effectively plot the position of each asset in the grid; for example I could plot the starting position of the asteroids by listing a div number:
 
-//Asteroid starting locations
 
 ![asteroid](/Images/Screenshot%202022-09-24%20at%2014.11.00.png)
 
@@ -235,15 +234,16 @@ I learnt a number of lessons throughout the project which I will implement in fu
 There are a couple of bugs; nothing game-breaking, rather things that take away from the overall experience and polish of the game:
 
 - You can continue to move the spaceship left and right after the 'Game Over' message as well as continue to fire. If a fired missile then hits a asteroid the 'Game Over' message disappears and the score reappears.
-- The explosion animation (when a asteroid is hit by a missile or a asteroid hits the player) doesn't appear on the deployed game but does when run from a server in VS Code.
-- If a fired missile doesn't hit a asteroid the missile carries on moving and does so beyond the grid div and browser window.
+- The explosion animation (when a asteroid is hit by a missile or an asteroid hits the player) doesn't appear on the deployed game but does when run from a server in VS Code.
+- If a player's browser/screen isn't sufficiently large enough to contain the whole page then when a player presses up the up arrow to fire a missile the screen scrolls up slightly so after a few presses a player might not be able to see what they are doing.  
+- If a fired missile doesn't hit an asteroid the missile carries on moving and does so beyond the grid div and browser window.
 #
 
 ## Future Improvements:
 
 The below were some of my original ideas which I simply ran out of time to implement or were slightly out of reach considering my level of knowledge at the time:
 
-- To first fix the bugs previously detailed.
+- To fix the bugs previously detailed.
 - To implement a title screen (as per my wireframe covered in the 'Planning' section) with links to a scoreboard and options.
 - A scoreboard (with local storage) that requests a player enters their details upon the successful completion of each game.
 - Sound effects with mute buttons or automatic muting after 2 or 3 rounds.
