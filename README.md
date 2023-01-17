@@ -159,7 +159,7 @@ Although I solved a number of the issues I came across I had a number which I si
 
 - When moving the spaceship left and right; if I held down one key long enough the spaceship would move off the screen left or right.
 - Both the asteroid and block would move from the left of the screen to the right but again I struggled to control how far they moved and they did so beyond the game window in which I wanted to limit play.
-- I could fire the missile with the space bar; it would fire from the current position of the spaceship and would travel vertically up the page, however; if I then continued to move the spaceship left or right the missile would also move left or right. This being a consequence of positioning the missile div within the spaceship div.
+- I could fire the missile with the <kbd>space bar</kbd>; it would fire from the current position of the spaceship and would travel vertically up the page, however; if I then continued to move the spaceship left or right the missile would also move left or right. This being a consequence of positioning the missile div within the spaceship div.
 
 I came to realise the majority of issues I faced with the animation were as a result of my original approach. I created a single div in which I included individual divs for each asset:
 
